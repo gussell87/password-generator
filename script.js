@@ -41,7 +41,7 @@ function generatePassword(lowerCase, upperCase, numbers, specials, userLen) {
     var userLen = prompt("Choose password character length (8-128 characters)");
     var intUserLen = parseInt(userLen);
 
-    var values = [""];
+    var values = [];
 
     // Boolean values
     var hasLower = confirm("Do you want your password to include lower case letters?");
@@ -82,17 +82,13 @@ function generatePassword(lowerCase, upperCase, numbers, specials, userLen) {
         values.push(specials);
     }
 
-    for (var i = 0; i < intUserLen; i += typesCount) {
-        typesArr.forEach(type => {
-            var valuesName = Object.keys(type)[0];
-
-            generatedPassword += values[valuesName]();
-        });
-    }
-    console.log(generatedPassword);
+    for (var i = 0; n = values.length; i < intUserLen, i++) {
+        password += values.charAt(Math.floor(Math.random() * n));
+        generatedPassword += values[valuesName]();
+    };
     return generatedPassword;
+    console.log(generatedPassword);
 }
-
 
 
 // Write password to the #password input
